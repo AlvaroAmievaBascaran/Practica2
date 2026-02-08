@@ -39,6 +39,11 @@ public class CarritoControlador {
         return carritos.get(idCarrito);
     }
 
+    @DeleteMapping("/api/carrito/{idCarrito}")
+    public void borrarCarrito(@PathVariable int idCarrito) {
+        carritos.remove(idCarrito);
+    }
+
 
 
 
