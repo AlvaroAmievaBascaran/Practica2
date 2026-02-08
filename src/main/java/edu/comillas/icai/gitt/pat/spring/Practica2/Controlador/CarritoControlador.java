@@ -34,6 +34,13 @@ public class CarritoControlador {
         return carrito;
     }
 
+    @GetMapping("/api/carrito/{idCarrito}")
+    public Carrito getCarrito(@PathVariable int idCarrito) {
+        return carritos.get(idCarrito);
+    }
+
+
+
 
 //    @PutMapping("/api/contadores/{nombre}/incremento/{incremento}")
 //    public ModeloContador incrementa(@PathVariable String nombre,
