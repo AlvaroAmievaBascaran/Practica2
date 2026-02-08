@@ -8,16 +8,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
- API Carrito
- POST   /api/carrito                 -> Crear carrito
- GET    /api/carrito                 -> Listado de carritos
- GET    /api/carrito/{id-carrito}    -> Descripción de un carrito con id {id-carrito}
- PUT    /api/carrito/{id-carrito}    -> Modificar el carrito
- DELETE /api/carrito/{id-carrito}    -> Borrar el carrito
-*/
-
-
 @RestController
 public class CarritoControlador {
     private final Map<Integer, Carrito> carritos = new HashMap<>();
@@ -28,7 +18,7 @@ public class CarritoControlador {
     }
 
     @PostMapping("/api/carrito")
-    @ResponseStatus(HttpStatus.CREATED) // Esto me permite devolver la respuesta
+    @ResponseStatus(HttpStatus.CREATED)
     public Carrito creaCarrito(@RequestBody Carrito carrito) {
         carritos.put(carrito.getIdCarrito(), carrito);
         return carrito;
@@ -44,17 +34,9 @@ public class CarritoControlador {
         carritos.remove(idCarrito);
     }
 
-
-
-
-//    @PutMapping("/api/contadores/{nombre}/incremento/{incremento}")
-//    public ModeloContador incrementa(@PathVariable String nombre,
-//                                     @PathVariable Integer incremento) {
-//        ModeloContador contadorActual = contadores.get(nombre);
-//        ModeloContador contadorIncrementado =
-//                new ModeloContador(nombre, contadorActual.valor() + incremento);
-//        contadores.put(nombre, contadorIncrementado);
-//        return contadorIncrementado;
-//    }
+    @PutMapping("/api/carrito/{idCarrito}")
+    public Carrito modificarCarrito(@PathVariable int idCarrito, @RequestBody Carrito carrito){
+        carritos.put(idCarrito, carrito);
+        return carrito;
+    }
 }
-
