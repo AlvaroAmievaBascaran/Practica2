@@ -58,7 +58,6 @@ public class CarritoServicio {
 
             carrito.getLineas().add(linea);
         } else {
-            // ya existe: sumamos unidades y actualizamos precio/desc si quieres
             linea.setPrecioUnitario(req.precioUnitario);
             linea.setUnidades(linea.getUnidades() + req.unidades);
             linea.recalcularCoste();
