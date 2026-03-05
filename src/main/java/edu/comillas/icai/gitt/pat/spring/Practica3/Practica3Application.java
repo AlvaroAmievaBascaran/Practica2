@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Practica3Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Practica2Application.class, args);
+		SpringApplication.run(Practica3Application.class, args);
 	}
 
 }
